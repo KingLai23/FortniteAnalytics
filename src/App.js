@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <div className="header">
-        <h1 onClick={() => reload()}>Fort Analytics</h1>
+        <h1 onClick={() => reload()}>Fortnite Analytics</h1>
       </div>
       <SearchPlayer />
     </div>
