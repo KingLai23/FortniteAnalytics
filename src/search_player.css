@@ -1,185 +1,75 @@
+
+:root {
+    --prompt: rgb(170, 90, 90);
+    --prompt2: rgb(201, 207, 211);
+
+    --loading-wheel: rgb(223, 126, 126);
+    --loading-msg: rgb(126, 126, 126);
+    --player-not-found: rgb(128, 128, 128);
+
+    --box: #222222;
+    --box-accent: rgb(134, 70, 70);
+    --box-title: #582c2c;
+    --box-title-accent: #7c3e3e;
+    
+    --summary-section: #a4c2d6;
+    --summary-accent: #596c79;
+    --name-box: rgb(42, 57, 71);
+    --name-box-accent: #6e7e88;
+
+    --dropdown: rgb(168, 168, 168);
+    --dropdown-border: rgb(119, 119, 119);
+    --dropdown-items: rgb(182, 182, 182);
+    --dropdown-item-border: rgb(136, 136, 136);
+}
+
 #overlay {
-    background-color: rgba(0, 0, 0, 0.6);
-    /* your color */
+    background-color: rgba(0, 0, 0, 0.75);
     width: 100%;
     height: 100%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    margin-top: 96px;
-}
-
-.snowflake {
-    color: #fff;
-    font-size: 1em;
-    font-family: Arial;
-    text-shadow: 0 0 1px #000;
-}
-
-@-webkit-keyframes snowflakes-fall {
-    0% {
-        top: -10%
-    }
-    100% {
-        top: 100%
-    }
-}
-
-@-webkit-keyframes snowflakes-shake {
-    0% {
-        -webkit-transform: translateX(0px);
-        transform: translateX(0px)
-    }
-    50% {
-        -webkit-transform: translateX(80px);
-        transform: translateX(80px)
-    }
-    100% {
-        -webkit-transform: translateX(0px);
-        transform: translateX(0px)
-    }
-}
-
-@keyframes snowflakes-fall {
-    0% {
-        top: -10%
-    }
-    100% {
-        top: 100%
-    }
-}
-
-@keyframes snowflakes-shake {
-    0% {
-        transform: translateX(0px)
-    }
-    50% {
-        transform: translateX(80px)
-    }
-    100% {
-        transform: translateX(0px)
-    }
-}
-
-.snowflake {
-    position: fixed;
-    top: -10%;
-    z-index: 9999;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    cursor: default;
-    -webkit-animation-name: snowflakes-fall, snowflakes-shake;
-    -webkit-animation-duration: 10s, 3s;
-    -webkit-animation-timing-function: linear, ease-in-out;
-    -webkit-animation-iteration-count: infinite, infinite;
-    -webkit-animation-play-state: running, running;
-    animation-name: snowflakes-fall, snowflakes-shake;
-    animation-duration: 10s, 3s;
-    animation-timing-function: linear, ease-in-out;
-    animation-iteration-count: infinite, infinite;
-    animation-play-state: running, running
-}
-
-.snowflake:nth-of-type(0) {
-    left: 1%;
-    -webkit-animation-delay: 0s, 0s;
-    animation-delay: 0s, 0s
-}
-
-.snowflake:nth-of-type(1) {
-    left: 10%;
-    -webkit-animation-delay: 1s, 1s;
-    animation-delay: 1s, 1s
-}
-
-.snowflake:nth-of-type(2) {
-    left: 20%;
-    -webkit-animation-delay: 6s, .5s;
-    animation-delay: 6s, .5s
-}
-
-.snowflake:nth-of-type(3) {
-    left: 30%;
-    -webkit-animation-delay: 4s, 2s;
-    animation-delay: 4s, 2s
-}
-
-.snowflake:nth-of-type(4) {
-    left: 40%;
-    -webkit-animation-delay: 2s, 2s;
-    animation-delay: 2s, 2s
-}
-
-.snowflake:nth-of-type(5) {
-    left: 50%;
-    -webkit-animation-delay: 8s, 3s;
-    animation-delay: 8s, 3s
-}
-
-.snowflake:nth-of-type(6) {
-    left: 60%;
-    -webkit-animation-delay: 6s, 2s;
-    animation-delay: 6s, 2s
-}
-
-.snowflake:nth-of-type(7) {
-    left: 70%;
-    -webkit-animation-delay: 2.5s, 1s;
-    animation-delay: 2.5s, 1s
-}
-
-.snowflake:nth-of-type(8) {
-    left: 80%;
-    -webkit-animation-delay: 1s, 0s;
-    animation-delay: 1s, 0s
-}
-
-.snowflake:nth-of-type(9) {
-    left: 90%;
-    -webkit-animation-delay: 3s, 1.5s;
-    animation-delay: 3s, 1.5s
 }
 
 .loading-symbol {
     border: 5px solid #f3f3f3;
     border-radius: 50%;
-    border-top: 7px solid #739fbd;
-    border-bottom: 7px solid #739fbd;
+    border-top: 7px solid var(--loading-wheel);
+    border-bottom: 7px solid var(--loading-wheel);
     width: 40px;
     height: 40px;
     -webkit-animation: spin 2s linear infinite;
     /* Safari */
     animation: spin 2s linear infinite;
     margin: auto;
-    margin-top: 40vh;
-}
-
-@-webkit-keyframes spin {
+    margin-top: 45vh;
+  }
+  
+  @-webkit-keyframes spin {
     0% {
         -webkit-transform: rotate(0deg);
     }
     100% {
         -webkit-transform: rotate(360deg);
     }
-}
-
-@keyframes spin {
+  }
+  
+  @keyframes spin {
     0% {
         transform: rotate(0deg);
     }
     100% {
         transform: rotate(360deg);
     }
-}
+  }
 
 .loading-msg {
     margin: auto;
     margin-top: 10px;
     text-align: center;
-    color: rgb(217, 225, 243);
+    color: var(--loading-msg);
     font-size: 18px;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
@@ -188,7 +78,7 @@
 .nog-ops {
     margin: auto;
     text-align: center;
-    margin-top: 71px;
+    margin-top: 80px;
 }
 
 .nog-ops img {
@@ -197,13 +87,13 @@
 }
 
 .prompt {
-    margin-top: 20vh;
+    margin-top: 18vh;
     text-align: center;
 }
 
 .prompt h1 {
-    color: rgb(10, 19, 37);
-    font-size: 30px;
+    color: var(--prompt);
+    font-size: 40px;
     font-family: 'Heebo', sans-serif;
     font-weight: bold;
     margin-bottom: 8px;
@@ -215,28 +105,37 @@
 }
 
 .prompt2 h1 {
-    color: rgb(10, 19, 37);
+    color: var(--prompt2);
     font-size: 21px;
     font-family: 'Heebo', sans-serif;
     font-weight: bold;
     margin-bottom: 0px;
 }
 
+.textarea-wrap, .searchbtn-wrap {
+    float: none;
+    display: table-cell;
+    vertical-align: middle;
+}
+
 .search_bar, .search_bar2 {
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .search_bar2 {
     margin-top: 4px;
-    margin-bottom: 4vh;
+    margin-bottom: 5vh;
 }
 
 .search_bar textarea, .search_bar2 textarea {
     text-align: center;
-    color: rgb(18, 25, 46);
+    color: rgb(38, 48, 56);
     background-color: rgb(233, 233, 233);
     padding: 8px 10px 12px;
-    border: solid 3px rgb(165, 175, 189);
+    border: solid 3px rgb(139, 164, 173);
     height: 32px !important;
     width: 625px !important;
     outline: none;
@@ -244,15 +143,24 @@
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: normal;
     resize: none;
-    border-radius: 50px 50px;
+    border-radius: 10px 10px;
 }
 
 .search_bar2 textarea {
     height: 26px !important;
-    width: 550px !important;
+    width: 475px !important;
     font-size: 18px;
     padding: 3px 10px 4px;
-    border: solid 2px rgb(165, 175, 189);
+    border: solid 2px rgb(139, 164, 173);
+}
+
+.search_bar button {
+    height: 55px;
+    padding: 0px 10px 3px;
+    color: rgb(28, 30, 36);
+    font-size: 22px;
+    font-family: 'Heebo', sans-serif;
+    font-weight: bold;
 }
 
 .player-not-found {
@@ -264,7 +172,7 @@
 .player-not-found p {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
-    color: rgb(82, 82, 82);
+    color: var(--player-not-found);
     font-weight: 700;
     line-height: 10px;
 }
@@ -292,14 +200,14 @@
     color: rgb(41, 41, 41);
     font-weight: 700;
     padding: 3px 2px;
-    background-color: rgb(150, 163, 175);
-    border: solid 2px rgb(112, 125, 143);
+    background-color: var(--dropdown);
+    border: solid 2px var(--dropdown-border);
     margin-bottom: 0;
     /* border-radius: 15px 0px; */
 }
 
 .seasonDdHeader p:hover {
-    background-color: rgb(134, 147, 158);
+    background-color: var(--dropdown-items);
     transition: background-color 0.1s ease-in-out;
 }
 
@@ -310,19 +218,19 @@ ul {
 
 .dd-list li {
     list-style-type: none;
-    background-color: rgb(175, 186, 196);
+    background-color: var(--dropdown-items);
     color: rgb(54, 54, 54);
     padding: 4px 2px;
     font-family: 'Heebo', sans-serif;
     font-size: 17px;
     font-weight: 700;
     margin-top: 0;
-    border-bottom: rgb(151, 162, 172) solid 2px;
+    border-bottom: var(--dropdown-item-border) solid 2px;
 }
 
 .dd-list li:hover {
     cursor: pointer;
-    background-color: rgb(151, 162, 172);
+    background-color: var(--dropdown);
     transition: background-color 0.1s ease-in-out;
 }
 
@@ -335,10 +243,10 @@ ul {
     float: left;
     width: 275px;
     height: 820px;
-    background-color: rgb(29, 36, 46);
+    background-color: var(--box);
     color: #fff;
     border-radius: 15px 0px;
-    box-shadow: 7px 7px rgb(72, 78, 94);
+    box-shadow: 6px 6px var(--summary-accent);
 }
 
 .player_name {
@@ -347,9 +255,9 @@ ul {
     text-align: center;
     font-weight: 700;
     padding: 10px 0;
-    background-color: rgb(56, 66, 78);
+    background-color: var(--name-box);
     border-radius: 15px 0px;
-    box-shadow: 0px 3px rgb(96, 105, 131)
+    box-shadow: 0px 3px var(--name-box-accent);
 }
 
 .right_section {
@@ -361,11 +269,11 @@ ul {
 .solo_section, .duo_section, .squad_section, .total_section {
     width: 100%;
     height: 190px;
-    background-color: rgb(29, 36, 46);
+    background-color: var(--box);
     margin-top: 0;
     margin-bottom: 20px;
     border-radius: 15px 0px;
-    box-shadow: 7px 7px rgb(72, 78, 94);
+    box-shadow: 6px 6px var(--box-accent);
 }
 
 .section_title {
@@ -375,9 +283,9 @@ ul {
     font-weight: 700;
     padding: 3px 10px;
     width: 100px;
-    background-color: rgb(73, 87, 105);
+    background-color: var(--box-title);
     border-radius: 15px 0 15px 0;
-    box-shadow: 3px 3px rgb(96, 105, 131)
+    box-shadow: 3px 3px var(--box-title-accent);
 }
 
 .solo_section p, .duo_section p, .squad_section p, .total_section p {
@@ -434,7 +342,7 @@ ul {
     font-family: 'Heebo', sans-serif;
     font-weight: bold;
     margin: 0px 85px;
-    color: rgb(182, 208, 238);
+    color: var(--summary-section);
     /* background-color: rgb(76, 95, 112); */
 }
 
@@ -478,7 +386,7 @@ ul {
     margin: auto;
     margin-top: 890px;
     padding: 12px 0;
-    background-color: rgb(24, 25, 31);
+    background-color: #0b1013;
     text-align: center;
     color: #fff;
     font-family: 'Poppins', sans-serif;

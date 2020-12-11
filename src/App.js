@@ -9,6 +9,38 @@ function App() {
 
   return (
     <div className="App">
+      <div class="snowflakes" aria-hidden="true">
+        <div class="snowflake">
+          ❅
+  </div>
+        <div class="snowflake">
+          ❅
+  </div>
+        <div class="snowflake">
+          ❆
+  </div>
+        <div class="snowflake">
+          ❄
+  </div>
+        <div class="snowflake">
+          ❅
+  </div>
+        <div class="snowflake">
+          ❆
+  </div>
+        <div class="snowflake">
+          ❄
+  </div>
+        <div class="snowflake">
+          ❅
+  </div>
+        <div class="snowflake">
+          ❆
+  </div>
+        <div class="snowflake">
+          ❄
+  </div>
+      </div>
       <div className="header">
         <h1 onClick={() => reload()}>Fortnite Analytics</h1>
       </div>

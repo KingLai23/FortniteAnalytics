@@ -19,6 +19,8 @@ const SearchPlayer = () => {
     const [currentSeason, setCurrentSeason] = useState(0);
     const [openSeasonDd, setOpenSeasonDd] = useState(false);
 
+    const buttonIcon = ">>";
+
     const searchForUser = (seasonNum, name) => {
         if (name !== '') {
             setloading(true);
@@ -87,39 +89,6 @@ const SearchPlayer = () => {
                     <></>
                 )}
 
-            <div class="snowflakes" aria-hidden="true">
-                <div class="snowflake">
-                    ❅
-  </div>
-                <div class="snowflake">
-                    ❅
-  </div>
-                <div class="snowflake">
-                    ❆
-  </div>
-                <div class="snowflake">
-                    ❄
-  </div>
-                <div class="snowflake">
-                    ❅
-  </div>
-                <div class="snowflake">
-                    ❆
-  </div>
-                <div class="snowflake">
-                    ❄
-  </div>
-                <div class="snowflake">
-                    ❅
-  </div>
-                <div class="snowflake">
-                    ❆
-  </div>
-                <div class="snowflake">
-                    ❄
-  </div>
-            </div>
-
             { !showStats || found !== 1 ? (
                 <div className="search_screen">
                     <div className="prompt">
@@ -127,19 +96,27 @@ const SearchPlayer = () => {
                     </div>
 
                     <div className="search_bar">
-                        <textarea
-                            placeholder="Enter an EPIC name."
-                            name="search_bar"
-                            id="search_bar"
-                            value={searchName}
-                            onChange={(e) => setSearchName(e.target.value)}
-                            onKeyPress={(event) => {
-                                if (event.key === 'Enter') {
-                                    event.preventDefault()
-                                    searchForUser(0, searchName)
-                                }
-                            }}
-                        />
+                        <div className="textarea-wrap">
+                            <textarea
+                                placeholder="Enter your EPIC name."
+                                name="search_bar"
+                                id="search_bar"
+                                value={searchName}
+                                onChange={(e) => setSearchName(e.target.value)}
+                                onKeyPress={(event) => {
+                                    if (event.key === 'Enter') {
+                                        event.preventDefault()
+                                        searchForUser(0, searchName)
+                                    }
+                                }}
+                            />
+                        </div>
+
+                        {/* <div className="searchbtn-wrap">
+                            <button>{buttonIcon}</button>
+                        </div> */}
+
+
                     </div>
 
                     { found === 0 ? (
