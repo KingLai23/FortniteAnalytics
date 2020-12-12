@@ -17,12 +17,20 @@ const SearchPlayer = () => {
 
     const seasonDdInfo = ["Lifetime", "Season 15"];
     const [currentSeason, setCurrentSeason] = useState(0);
+    const [dropdownSeason, setDropdownSeason] = useState(1);
     const [openSeasonDd, setOpenSeasonDd] = useState(false);
 
     const buttonIcon = ">>";
 
+    const searchForUserWrap = (name) => {
+        setDropdownSeason(1);
+        setCurrentSeason(0);
+        searchForUser(0, name);
+    }
+
     const searchForUser = (seasonNum, name) => {
         if (name !== '') {
+            setOpenSeasonDd(false);
             setloading(true);
 
             var queryParam1 = "playerName=" + name;
@@ -40,8 +48,6 @@ const SearchPlayer = () => {
 
             axios.get(url)
                 .then(res => {
-
-                    setCurrentSeason(seasonNum);
 
                     if (res.data.status === "Good") {
                         setSoloStats(res.data.data.solos);
@@ -74,6 +80,7 @@ const SearchPlayer = () => {
 
     const setSeason = (selectedSeason) => {
         toggleDd();
+        setDropdownSeason(currentSeason);
         setCurrentSeason(selectedSeason);
         searchForUser(selectedSeason, playerName);
     }
@@ -106,7 +113,7 @@ const SearchPlayer = () => {
                                 onKeyPress={(event) => {
                                     if (event.key === 'Enter') {
                                         event.preventDefault()
-                                        searchForUser(0, searchName)
+                                        searchForUserWrap(searchName)
                                     }
                                 }}
                             />
@@ -156,7 +163,7 @@ const SearchPlayer = () => {
                                     onKeyPress={(event) => {
                                         if (event.key === 'Enter') {
                                             event.preventDefault()
-                                            searchForUser(0, searchName)
+                                            searchForUserWrap(searchName)
                                         }
                                     }}
                                 />
@@ -171,9 +178,7 @@ const SearchPlayer = () => {
                                             <p>{seasonDdInfo[currentSeason]}</p>
                                         </div>
                                         {openSeasonDd && <ul className="dd-list">
-                                            {seasonDdInfo.map((item, index) => (
-                                                <li className="dd-list-item" key={item} onClick={() => setSeason(index)}>{seasonDdInfo[index]}</li>
-                                            ))}
+                                            <li className="dd-list-item" onClick={() => setSeason(dropdownSeason)}>{seasonDdInfo[dropdownSeason]}</li>
                                         </ul>}
                                     </div>
 
@@ -596,8 +601,8 @@ const SearchPlayer = () => {
                                                 </div>
                                                 <div className="right_stats">
                                                     <p><span className="categories">Avg. M. Time</span> {totalStats.minutespermatch}min</p>
-                                                    <p><span className="categories">Top 10</span> {totalStats.placetop10}</p>
-                                                    <p><span className="categories">Top 25</span> {totalStats.placetop25}</p>
+                                                    <p><span className="categories">Top 3/5/6</span> {totalStats.top356}</p>
+                                                    <p><span className="categories">Top 10/12/25</span> {totalStats.top101225}</p>
                                                 </div>
                                             </div>
                                         ) : (
